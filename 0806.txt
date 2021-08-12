@@ -1,0 +1,36 @@
+Verification Goals
+Verify RTL design code
+Ensure full conformance with specification
+Functional coverage , Code coverage (next page )
+
+DS (Dedicated Scenario) Test
+DUT(Design under test)의 기본 기능 검증이 가능한 scenario 작성 (보통 100 case 내외)
+RTL 담당자 & Algorithm 담당자
+복잡한 기능의 DUT를 충분히 검증하기 어려움
+Algorithm 담당자가 test vector 생성
+RTL 담당자가 Simulation 및 debugging 수행
+
+DRT (Directed Random Test)
+DUT의 spec에 맞도록 constraint를 적용하여 random test scenario 작성
+완전 조합 검증은 불가능하며, 완전 random 검증은 무의미함
+Verification 담당자가 SystemVerilog로 구현
+Verification 담당자가 Reference-C와 연동하여 test vector를 생성 및 simulation 수행
+Test environment for verification automation
+UVM – Universal Verification Methodology
+Self-checking random environment
+Coverage-Driven Verification
+Prevent untested regions (corner-case verification)
+Functional coverage, Code coverage (Line, Toggle, Condition, FSM)
+Achieve coverage 100% => Tape out
+
+Functional Coverage
+The determination of how much functionality of design has been exercised by a verification environment.
+특정 point 에서, 그 point 가 가질 수 있는 값의 range 중 어느 정도나 hit 되었는가를 판단
+In SV, covergroup/coverpoint/crosscoverage/bins
+Coverage collect 단계 (DRT run단계) 에서는 fully pass (out data match, cross-point match) 시 count
+    * pre-run 단계에서는 pass/fail 무관하게 count 가능
+Configuration setting velues to DUT : operation scenario 에 따른 설정 parameters
+Internal cross-check ( function blocks) point signals, memory addr /contents range  : 
+Out report registers
+Verification, RTL, Algorithm 담당자가 coverpoint, bin 개수 및 범위, cross coverage 설정
+
